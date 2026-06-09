@@ -1,0 +1,11 @@
+policy_id,name,condition,severity,action
+P001,External communication approval,Tool sends external message,high,require_approval
+P002,PII exposure guard,Task or output contains personal data,high,block_or_review
+P003,Destructive action guard,Task requests delete/update/production mutation,critical,block_or_approval
+P004,Financial/legal advice guard,Task requests financial/legal decision,high,require_human_review
+P005,Prompt injection guard,Input attempts to override system/tool policies,critical,block_or_review
+P006,High-cost run guard,Estimated cost exceeds budget,medium,require_approval
+P007,Database safety guard,SQL query appears destructive,critical,block
+P008,Source grounding guard,Claims require source/evidence but none provided,medium,request_sources
+P009,Connector allowlist guard,Agent requests tool not in its allowlist,high,require_approval
+P010,Workspace secret guard,Task requests credentials tokens or API keys,critical,block

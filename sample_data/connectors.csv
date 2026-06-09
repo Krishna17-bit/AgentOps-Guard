@@ -1,0 +1,17 @@
+tool_name,category,description,risk_level,requires_approval,enabled,real_connector,env_vars
+ Gmail send email,communication,Send outbound email through SMTP or Gmail workspace,high,true,true,gmail.send_email,"GMAIL_SMTP_HOST;GMAIL_SMTP_USER;GMAIL_SMTP_PASSWORD;GMAIL_FROM_EMAIL"
+Slack notify,communication,Send Slack notification through incoming webhook,medium,true,true,slack.notify,SLACK_WEBHOOK_URL
+GitHub create issue,engineering,Create GitHub issue in a configured repository,medium,true,true,github.create_issue,"GITHUB_TOKEN;GITHUB_REPO"
+Jira create ticket,engineering,Create Jira issue or task in a configured project,medium,true,true,jira.create_ticket,"JIRA_API_TOKEN;JIRA_EMAIL;JIRA_BASE_URL"
+Database query,data,Run read-only SQL query against approved database,medium,true,true,database.query,DATABASE_URL
+Snowflake query,data,Run read-only Snowflake query,medium,true,true,snowflake.query,"SNOWFLAKE_ACCOUNT;SNOWFLAKE_USER;SNOWFLAKE_PASSWORD"
+Browser fetch,web,Fetch and summarize approved URL,medium,false,true,browser.fetch,
+File read,files,Read approved local or uploaded file,low,false,true,file.read,
+File write,files,Write generated report or export file,medium,true,true,file.write,
+CRM create lead,sales,Create or update CRM lead record,medium,true,true,crm.create_lead,HUBSPOT_API_KEY
+HubSpot create contact,sales,Create HubSpot contact record,high,true,true,hubspot.create_contact,HUBSPOT_API_KEY
+Notion create page,knowledge,Create Notion page in an approved workspace,medium,true,true,notion.create_page,NOTION_API_KEY
+Google Drive search,knowledge,Search approved Google Drive folders,medium,false,true,google_drive.search,"GOOGLE_DRIVE_CLIENT_ID;GOOGLE_DRIVE_CLIENT_SECRET"
+S3 upload,storage,Upload report to configured S3 bucket,high,true,true,s3.upload,"S3_BUCKET;AWS_ACCESS_KEY_ID;AWS_SECRET_ACCESS_KEY"
+Zendesk create ticket,support,Create Zendesk support ticket,medium,true,true,zendesk.create_ticket,
+Knowledge search,knowledge,Search approved internal knowledge base,low,false,true,knowledge.search,

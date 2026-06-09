@@ -1,0 +1,7 @@
+agent_id,name,description,risk_level,allowed_tools,budget_limit_usd,owner
+support_agent,Support Agent,Handles customer support drafts ticket summaries and customer communication,medium,"zendesk.create_ticket;slack.notify;gmail.send_email;knowledge.search",5.00,Support Ops
+leadintel_agent,LeadIntel Agent,Reviews new business leads and prepares verification actions,medium,"crm.create_lead;browser.fetch;slack.notify;database.query;gmail.send_email",7.50,Revenue Ops
+compliance_agent,Compliance Agent,Reviews evidence and creates compliance tasks,high,"google_drive.search;jira.create_ticket;slack.notify;database.query;file.write",10.00,GRC
+data_agent,Data Analyst Agent,Runs SQL-style analysis and drafts business insights,medium,"database.query;snowflake.query;slack.notify;file.write",8.00,Data Team
+dev_agent,Engineering PR Agent,Reviews code tasks and creates engineering tickets,high,"github.create_issue;jira.create_ticket;slack.notify;file.read",8.00,Engineering
+ops_agent,Back Office Ops Agent,Automates internal operations approvals and report handoffs,medium,"gmail.send_email;slack.notify;notion.create_page;file.write;crm.create_lead",6.00,Operations

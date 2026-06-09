@@ -4,8 +4,6 @@
 
 It provides a control tower for agent runs: task intake, intent classification, policy checks, tool-permission checks, human approval gates, connector execution control, risk scanning, evaluation, observability, and audit exports.
 
-The platform is designed to be **Claude-ready for production**, while also supporting **Gemini test mode** and **local heuristic mode** so the app can be tested without a Claude API key.
-
 ---
 
 ## What it solves
@@ -91,9 +89,6 @@ Every run stores:
 - Provider route selector in the UI
 - Model/run metadata stored per execution
 
-The public repo is honest: it is Claude-ready and Claude-first, but it does not claim Claude was used unless `ANTHROPIC_API_KEY` is configured and the run provider shows Claude.
-
----
 
 ### Agent registry
 
@@ -195,8 +190,6 @@ Run read-only DB query → approval may be required
 Fetch approved URL → can be allowed without approval
 ```
 
-Public demo execution is safe by default. Real connector calls are disabled unless explicitly enabled.
-
 ---
 
 ### Risk scanner
@@ -246,8 +239,6 @@ It tests whether the system correctly:
 - handles prompt-injection attempts
 - keeps audit records
 
-This is valuable because real clients increasingly need evaluation and monitoring, not just agent demos.
-
 ---
 
 ### Audit export
@@ -265,17 +256,17 @@ Export:
 
 ---
 
-## Demo-safe connector execution
+## connector execution
 
-Real workspace actions are disabled by default.
+ workspace actions are disabled by default.
 
 ```env
 ENABLE_REAL_CONNECTORS=false
 ```
 
-The app simulates connector execution safely so the public repo can be tested without sending real emails, creating real tickets, or modifying real systems.
+The app simulates connector execution safely so can be tested without sending real emails, creating real tickets, or modifying real systems.
 
-For a client deployment, real connector logic can be added inside:
+For a  deployment, real connector logic can be added inside:
 
 ```text
 src/connectors.py
@@ -283,7 +274,7 @@ src/connectors.py
 
 ---
 
-## Optional real connector setup
+## Optional  connector setup
 
 Add keys in `.env` as needed:
 
@@ -437,11 +428,11 @@ AgentOps-Guard/
 
 Planned expansion ideas:
 
-- real Slack approval workflow
-- real Gmail/SMTP connector
-- real GitHub issue connector
-- real Jira connector
-- real HubSpot connector
+- Slack approval workflow
+- Gmail/SMTP connector
+- GitHub issue connector
+- Jira connector
+- HubSpot connector
 - MCP server/client integration
 - PostgreSQL backend
 - FastAPI API layer
@@ -459,14 +450,6 @@ Planned expansion ideas:
 
 ---
 
-## Important note
-
-This project is Claude-ready and Claude-first, but it should not falsely claim that Claude was used for a run unless `ANTHROPIC_API_KEY` was configured and the run shows provider `claude`.
-
-Gemini mode is included so the platform can be tested locally when Claude API access is not available.
-
----
-
 ## Disclaimer
 
-AgentOps Guard is a governance and observability demo platform. Public connector execution is intentionally simulated unless real connector keys and explicit execution settings are configured. Human review is recommended before enabling real external actions.
+AgentOps Guard is a governance and observability platform. Connector execution is intentionally simulated unless connector keys and explicit execution settings are configured. Human review is recommended before enabling external actions.

@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  agentops-guard:
+    build: .
+    container_name: agentops_guard_container
+    ports:
+      - "8501:8501" # Streamlit web UI
+      - "8000:8000" # FastAPI backend API
+    volumes:
+      - ./outputs:/app/outputs # Persist the sqlite database locally on host
+    env_file:
+      - .env
+    restart: unless-stopped

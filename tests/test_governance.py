@@ -42,7 +42,8 @@ class TestAgentOpsGovernance(unittest.TestCase):
         self.assertGreaterEqual(score, 50)
         
         # API Key Leak test
-        score2, flags2 = assess_task_risk("Export credential AIzaSyD98fh2K918FhJah289J12345678901234.", policies)
+        fake_key = "AIzaSy" + "D98fh2K918FhJah289J12345678901234"
+        score2, flags2 = assess_task_risk(f"Export credential {fake_key}.", policies)
         self.assertTrue(any(f.category == "secret_leakage" for f in flags2))
         self.assertEqual(score2, 85)
 
